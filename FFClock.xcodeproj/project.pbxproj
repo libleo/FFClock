@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B31D92451FFDD358008284BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D92441FFDD358008284BA /* AppDelegate.m */; };
-		B31D92481FFDD358008284BA /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D92471FFDD358008284BA /* FirstViewController.m */; };
 		B31D924B1FFDD358008284BA /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D924A1FFDD358008284BA /* SecondViewController.m */; };
 		B31D924E1FFDD358008284BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31D924C1FFDD358008284BA /* Main.storyboard */; };
 		B31D92501FFDD358008284BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B31D924F1FFDD358008284BA /* Assets.xcassets */; };
@@ -16,6 +15,11 @@
 		B31D92561FFDD358008284BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D92551FFDD358008284BA /* main.m */; };
 		B31D92601FFDD358008284BA /* FFClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D925F1FFDD358008284BA /* FFClockTests.m */; };
 		B31D926B1FFDD358008284BA /* FFClockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B31D926A1FFDD358008284BA /* FFClockUITests.m */; };
+		B31D927D1FFDF93A008284BA /* EorzeaTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31D927C1FFDF93A008284BA /* EorzeaTimer.swift */; };
+		B3564DC5200DD7760064768D /* nodes.json in Resources */ = {isa = PBXBuildFile; fileRef = B3564DC4200DD7760064768D /* nodes.json */; };
+		B3564DC7200DDC140064768D /* GatheringNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DC6200DDC140064768D /* GatheringNode.swift */; };
+		B3564DCA200DDE110064768D /* FFEorzeaGatheringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DC9200DDE110064768D /* FFEorzeaGatheringController.swift */; };
+		B3564DCC200DDE2E0064768D /* FFGatheringItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DCB200DDE2E0064768D /* FFGatheringItemViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,6 @@
 		B31D92401FFDD358008284BA /* FFClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31D92431FFDD358008284BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B31D92441FFDD358008284BA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B31D92461FFDD358008284BA /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		B31D92471FFDD358008284BA /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		B31D92491FFDD358008284BA /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		B31D924A1FFDD358008284BA /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		B31D924D1FFDD358008284BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +56,12 @@
 		B31D92661FFDD358008284BA /* FFClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FFClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31D926A1FFDD358008284BA /* FFClockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFClockUITests.m; sourceTree = "<group>"; };
 		B31D926C1FFDD358008284BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B31D92781FFDD43C008284BA /* FFClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFClock-Bridging-Header.h"; sourceTree = "<group>"; };
+		B31D927C1FFDF93A008284BA /* EorzeaTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EorzeaTimer.swift; sourceTree = "<group>"; };
+		B3564DC4200DD7760064768D /* nodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nodes.json; sourceTree = "<group>"; };
+		B3564DC6200DDC140064768D /* GatheringNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringNode.swift; sourceTree = "<group>"; };
+		B3564DC9200DDE110064768D /* FFEorzeaGatheringController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFEorzeaGatheringController.swift; sourceTree = "<group>"; };
+		B3564DCB200DDE2E0064768D /* FFGatheringItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFGatheringItemViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +112,11 @@
 		B31D92421FFDD358008284BA /* FFClock */ = {
 			isa = PBXGroup;
 			children = (
+				B3564DC3200DD75A0064768D /* Resources */,
+				B3564DC0200DABA20064768D /* Controllers */,
+				B31D927B1FFDF8AA008284BA /* Models */,
 				B31D92431FFDD358008284BA /* AppDelegate.h */,
 				B31D92441FFDD358008284BA /* AppDelegate.m */,
-				B31D92461FFDD358008284BA /* FirstViewController.h */,
-				B31D92471FFDD358008284BA /* FirstViewController.m */,
 				B31D92491FFDD358008284BA /* SecondViewController.h */,
 				B31D924A1FFDD358008284BA /* SecondViewController.m */,
 				B31D924C1FFDD358008284BA /* Main.storyboard */,
@@ -115,6 +124,7 @@
 				B31D92511FFDD358008284BA /* LaunchScreen.storyboard */,
 				B31D92541FFDD358008284BA /* Info.plist */,
 				B31D92551FFDD358008284BA /* main.m */,
+				B31D92781FFDD43C008284BA /* FFClock-Bridging-Header.h */,
 			);
 			path = FFClock;
 			sourceTree = "<group>";
@@ -135,6 +145,40 @@
 				B31D926C1FFDD358008284BA /* Info.plist */,
 			);
 			path = FFClockUITests;
+			sourceTree = "<group>";
+		};
+		B31D927B1FFDF8AA008284BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B31D927C1FFDF93A008284BA /* EorzeaTimer.swift */,
+				B3564DC6200DDC140064768D /* GatheringNode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B3564DC0200DABA20064768D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B3564DC8200DDDFF0064768D /* EorzeaGatheringController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B3564DC3200DD75A0064768D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B3564DC4200DD7760064768D /* nodes.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B3564DC8200DDDFF0064768D /* EorzeaGatheringController */ = {
+			isa = PBXGroup;
+			children = (
+				B3564DC9200DDE110064768D /* FFEorzeaGatheringController.swift */,
+				B3564DCB200DDE2E0064768D /* FFGatheringItemViewCell.swift */,
+			);
+			path = EorzeaGatheringController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +248,7 @@
 				TargetAttributes = {
 					B31D923F1FFDD358008284BA = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					B31D925A1FFDD358008284BA = {
@@ -246,6 +291,7 @@
 				B31D92531FFDD358008284BA /* LaunchScreen.storyboard in Resources */,
 				B31D92501FFDD358008284BA /* Assets.xcassets in Resources */,
 				B31D924E1FFDD358008284BA /* Main.storyboard in Resources */,
+				B3564DC5200DD7760064768D /* nodes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,8 +318,11 @@
 			files = (
 				B31D924B1FFDD358008284BA /* SecondViewController.m in Sources */,
 				B31D92451FFDD358008284BA /* AppDelegate.m in Sources */,
+				B3564DC7200DDC140064768D /* GatheringNode.swift in Sources */,
+				B3564DCA200DDE110064768D /* FFEorzeaGatheringController.swift in Sources */,
+				B31D927D1FFDF93A008284BA /* EorzeaTimer.swift in Sources */,
+				B3564DCC200DDE2E0064768D /* FFGatheringItemViewCell.swift in Sources */,
 				B31D92561FFDD358008284BA /* main.m in Sources */,
-				B31D92481FFDD358008284BA /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,11 +485,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lib.leo.FFClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FFClock/FFClock-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -449,11 +502,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lib.leo.FFClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FFClock/FFClock-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -461,6 +517,7 @@
 		B31D92731FFDD358008284BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClockTests/Info.plist;
@@ -475,6 +532,7 @@
 		B31D92741FFDD358008284BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClockTests/Info.plist;
@@ -489,6 +547,7 @@
 		B31D92761FFDD358008284BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClockUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -502,6 +561,7 @@
 		B31D92771FFDD358008284BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FFClockUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
