@@ -21,7 +21,6 @@ class FFGatheringItemViewCell : UITableViewCell {
     
     var gatheringItem : GatheringItem? {
         willSet {
-            print("will set gathering item ", newValue as Any)
         }
         didSet {
             self.refreshDisplay()

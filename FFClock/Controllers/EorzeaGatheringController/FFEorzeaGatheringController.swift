@@ -56,10 +56,7 @@ extension FFEorzeaGatheringController : UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.gatheringNodes?[section].items?.count ?? 0
-        }
-        return 0
+        return self.gatheringNodes?[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -73,8 +70,9 @@ extension FFEorzeaGatheringController : UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "GatheringItem") as? FFGatheringItemViewCell {
-            tableViewCell.gatheringItem = self.gatheringNodes?[indexPath.section].items![indexPath.row]
+            let item = self.gatheringNodes?[indexPath.section].items![indexPath.row]
             tableViewCell.eorzeaTimer = self.eorzeaTimer
+            tableViewCell.gatheringItem = item
             return tableViewCell
         }
         return UITableViewCell.init()
@@ -107,6 +105,7 @@ extension FFEorzeaGatheringController {
     fileprivate func _sortNodes() {
         self.gatheringNodes?.sort(by: { [weak self] (node1, node2) -> Bool in
             let currentBell = (self?.eorzeaTimer.ezBell)!
+            print("current bell is ", currentBell)
             var minAbsTime1 = Int8.max
             node1.times?.forEach({ (time) in
                 let absTime1 = currentBell - time
@@ -122,7 +121,7 @@ extension FFEorzeaGatheringController {
                 }
             })
             
-            return minAbsTime1 <= minAbsTime2
+            return minAbsTime1 < minAbsTime2
         })
     }
 }
