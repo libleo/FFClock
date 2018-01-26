@@ -52,19 +52,28 @@ extension FFEorzeaGatheringController : UITableViewDelegate, UITableViewDataSour
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.gatheringNodes?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.gatheringItems?.count ?? 0
+            return self.gatheringNodes?[section].items?.count ?? 0
         }
         return 0
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView.init(frame: CGRect.zero)
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let tableViewCell = tableView.dequeueReusableCell(withIdentifier: "GatheringItem") as? FFGatheringItemViewCell {
-            tableViewCell.gatheringItem = self.gatheringItems?[indexPath.row]
+            tableViewCell.gatheringItem = self.gatheringNodes?[indexPath.section].items![indexPath.row]
             tableViewCell.eorzeaTimer = self.eorzeaTimer
             return tableViewCell
         }
