@@ -29,16 +29,17 @@ class FFEorzeaGatheringController : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.refreshTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] (timer) in
+        self.refreshTimer = Timer.init(timeInterval: 1.0, repeats: true, block: { [weak self] _ in
             self?.eorzeaTimer.realTimeinterval = Date.init(timeIntervalSinceNow: 0.0).timeIntervalSince1970
             let eozTimer = self?.eorzeaTimer
             self?.timeLabel?.text = String.init(format: "Eorzea Time: %d:%02d", (eozTimer?.ezBell)!, (eozTimer?.ezMinute)!)
             self?._sortNodes()
             self?.tableView.reloadData()
-//            self?.tableView.beginUpdates();
-//            self?.tableView.reloadRows(at: (self?.tableView.indexPathsForVisibleRows)!, with: UITableViewRowAnimation.none);
-//            self?.tableView.endUpdates();
+            //            self?.tableView.beginUpdates();
+            //            self?.tableView.reloadRows(at: (self?.tableView.indexPathsForVisibleRows)!, with: UITableViewRowAnimation.none);
+            //            self?.tableView.endUpdates();
         })
+        RunLoop.main.add(self.refreshTimer!, forMode: RunLoopMode.commonModes)
     }
 }
 
@@ -105,23 +106,49 @@ extension FFEorzeaGatheringController {
     fileprivate func _sortNodes() {
         self.gatheringNodes?.sort(by: { [weak self] (node1, node2) -> Bool in
             let currentBell = (self?.eorzeaTimer.ezBell)!
-            print("current bell is ", currentBell)
-            var minAbsTime1 = Int8.max
+            let currentMinute = (self?.eorzeaTimer.ezMinute)!
+            var order1 = 0
+            var order2 = 0
+            var minAbsTime1 = 10000.0
             node1.times?.forEach({ (time) in
-                let absTime1 = currentBell - time
-                if absTime1 < minAbsTime1 {
+                let absTime1 = Double(time) + Double(node1.uptime ?? 0)/60.0 - (Double(currentBell) + Double(currentMinute)/60.0)
+                if absTime1 >= 0 && absTime1 < minAbsTime1 {
                     minAbsTime1 = absTime1
+                    node1.statusTime = time
                 }
             })
-            var minAbsTime2 = Int8.max
+            var minAbsTime2 = 10000.0
             node2.times?.forEach({ (time) in
-                let absTime2 = currentBell - time
-                if absTime2 < minAbsTime2 {
+                let absTime2 = Double(time) + Double(node2.uptime ?? 0)/60.0 - (Double(currentBell) + Double(currentMinute)/60.0)
+                if absTime2 >= 0 && absTime2 < minAbsTime2 {
                     minAbsTime2 = absTime2
+                    node2.statusTime = time
                 }
             })
             
-            return minAbsTime1 < minAbsTime2
+            if currentBell >= node1.statusTime ?? 0 && currentBell < Int8(Int(node1.statusTime ?? 0) + node1.uptime!/60) {
+                order1 += 10000
+            }
+            
+            if currentBell >= node2.statusTime ?? 0 && currentBell < Int8(Int(node2.statusTime ?? 0) + node2.uptime!/60) {
+                order2 += 10000
+            }
+            
+            if currentBell - Int8(node1.statusTime ?? 0) == -1 {
+                order1 += 1000
+            }
+            
+            if currentBell - Int8(node2.statusTime ?? 0) == -1 {
+                order2 += 1000
+            }
+            
+            if minAbsTime1 < minAbsTime2 {
+                order1 += 1
+            } else {
+                order2 += 1
+            }
+            
+            return order1 > order2
         })
     }
 }

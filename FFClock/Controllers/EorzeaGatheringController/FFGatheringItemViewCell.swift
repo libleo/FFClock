@@ -38,18 +38,20 @@ class FFGatheringItemViewCell : UITableViewCell {
     public func refreshDisplay() {
         if let node = self.gatheringItem?.node, let eorzeaTimer = self.eorzeaTimer {
             self.nameLabel.text = self.gatheringItem?.itemName
-            let activeSeconds = node.uptime!
-            let activeEzBells = Double(activeSeconds) / (ezMinutePerSecond * 60.0)
+            let activeSeconds = Double(node.uptime!) * ezMinutePerSecond
+            let activeEzBells = Double(activeSeconds) / 60.0
             let activeText = NSMutableAttributedString.init()
             // 激活时间
-            if let times = node.times {
-                for ezBell in times {
-                    if eorzeaTimer.ezBell >= ezBell && Double(eorzeaTimer.ezBell) <= (Double(ezBell) + activeEzBells) {
-                        let realActiveSeconds = (Double(eorzeaTimer.ezBell - ezBell) * 60 + Double(eorzeaTimer.ezMinute)) * ezMinutePerSecond
-                        activeText.append(NSAttributedString.init(string: NSString.init(format: "%.0lf ", realActiveSeconds) as String, attributes: [NSForegroundColorAttributeName : UIColor.green]))
-                    } else {
-                        
-                    }
+            if let time = node.statusTime {
+                if eorzeaTimer.ezBell >= time && Double(eorzeaTimer.ezBell) <= (Double(time) + activeEzBells) {
+                    let realActiveSeconds = (Double(eorzeaTimer.ezBell - time) * 60 + Double(eorzeaTimer.ezMinute)) * ezMinutePerSecond + eorzeaTimer.realTimeRemainder
+                    let reminderSecond = Double(activeSeconds) - realActiveSeconds;
+                    activeText.append(NSAttributedString.init(string: NSString.init(format: "%.0lf ", reminderSecond) as String, attributes: [NSForegroundColorAttributeName : UIColor.green]))
+                } else if eorzeaTimer.ezBell - time == -1 {
+                    let willActiveSeconds = (Double(time - eorzeaTimer.ezBell) * 60 - Double(eorzeaTimer.ezMinute)) * ezMinutePerSecond - eorzeaTimer.realTimeRemainder
+                    activeText.append(NSAttributedString.init(string: NSString.init(format: "%.0lf ", willActiveSeconds) as String, attributes: [NSForegroundColorAttributeName : UIColor.red]))
+                } else {
+                    
                 }
             }
             self.activeLabel.attributedText = activeText

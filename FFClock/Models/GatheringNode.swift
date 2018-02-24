@@ -52,6 +52,12 @@ public class GatheringItem {
 //"id": 236,
 //"patch": 2.0
 
+enum GatheringNodeStatus {
+    case GatheringNodeStatusNone
+    case GatheringNodeStatusActive
+    case GatheringNodeStatusPending
+}
+
 public class GatheringNode {
     
     var title : String?
@@ -65,6 +71,9 @@ public class GatheringNode {
     var patch : Float?
     var items : Array<GatheringItem>?
     
+    var gatheringStatus : GatheringNodeStatus?
+    var statusTime : Int8?
+    
     init?(data aData : Dictionary<String, Any>) {
         self._parseData(data: aData)
     }
@@ -74,7 +83,15 @@ public class GatheringNode {
         self.name = aData["name"] as? String
         self.iden = aData["id"] as? NSNumber
         self.stars = aData["stars"] as? Int8
-        self.times = aData["time"] as? Array
+        
+        var tmpTimes : Array<Int8> = Array<Int8>.init()
+        if let times = aData["time"] as? Array<Int8> {
+            for time in times {
+                tmpTimes.append(time)
+                tmpTimes.append(time + 24)
+            }
+        }
+        self.times = tmpTimes
         
         if let coordsArray = aData["coords"] as? Array<NSNumber> {
             self.coords = CGPoint.init(x: coordsArray[0].intValue, y: coordsArray[1].intValue)
