@@ -37,7 +37,8 @@ class FFGatheringItemViewCell : UITableViewCell {
     
     public func refreshDisplay() {
         if let node = self.gatheringItem?.node, let eorzeaTimer = self.eorzeaTimer {
-            self.nameLabel.text = self.gatheringItem?.itemName
+            let rawName = self.gatheringItem?.itemName ?? ""
+            self.nameLabel.text = rawName
             let activeSeconds = Double(node.uptime!) * ezMinutePerSecond
             let activeEzBells = Double(activeSeconds) / 60.0
             let activeText = NSMutableAttributedString.init()

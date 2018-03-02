@@ -21,6 +21,8 @@
 		B3564DC7200DDC140064768D /* GatheringNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DC6200DDC140064768D /* GatheringNode.swift */; };
 		B3564DCA200DDE110064768D /* FFEorzeaGatheringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DC9200DDE110064768D /* FFEorzeaGatheringController.swift */; };
 		B3564DCC200DDE2E0064768D /* FFGatheringItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3564DCB200DDE2E0064768D /* FFGatheringItemViewCell.swift */; };
+		B3C0B91E2043F6B100A95E36 /* locale.cn.json in Resources */ = {isa = PBXBuildFile; fileRef = B3C0B91D2043F6B100A95E36 /* locale.cn.json */; };
+		B3C0B9202043FCF600A95E36 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C0B91F2043FCF600A95E36 /* LocalizedText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		B3564DC6200DDC140064768D /* GatheringNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatheringNode.swift; sourceTree = "<group>"; };
 		B3564DC9200DDE110064768D /* FFEorzeaGatheringController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFEorzeaGatheringController.swift; sourceTree = "<group>"; };
 		B3564DCB200DDE2E0064768D /* FFGatheringItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFGatheringItemViewCell.swift; sourceTree = "<group>"; };
+		B3C0B91D2043F6B100A95E36 /* locale.cn.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = locale.cn.json; sourceTree = "<group>"; };
+		B3C0B91F2043FCF600A95E36 /* LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 			children = (
 				B31D927C1FFDF93A008284BA /* EorzeaTimer.swift */,
 				B3564DC6200DDC140064768D /* GatheringNode.swift */,
+				B3C0B91F2043FCF600A95E36 /* LocalizedText.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				B3564DC4200DD7760064768D /* nodes.json */,
+				B3C0B91D2043F6B100A95E36 /* locale.cn.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 			files = (
 				B31D92531FFDD358008284BA /* LaunchScreen.storyboard in Resources */,
 				B31D92501FFDD358008284BA /* Assets.xcassets in Resources */,
+				B3C0B91E2043F6B100A95E36 /* locale.cn.json in Resources */,
 				B31D924E1FFDD358008284BA /* Main.storyboard in Resources */,
 				B3564DC5200DD7760064768D /* nodes.json in Resources */,
 			);
@@ -327,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C0B9202043FCF600A95E36 /* LocalizedText.swift in Sources */,
 				B31D924B1FFDD358008284BA /* SecondViewController.m in Sources */,
 				B31D92451FFDD358008284BA /* AppDelegate.m in Sources */,
 				B3564DC7200DDC140064768D /* GatheringNode.swift in Sources */,

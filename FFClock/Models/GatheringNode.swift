@@ -18,6 +18,7 @@ import CoreGraphics
 
 public class GatheringItem {
     var itemName : String?
+    var itemNameRaw : String?
     var itemIden : Int?
     var itemIconIden : Int?
     var node : GatheringNode?
@@ -29,7 +30,9 @@ public class GatheringItem {
     }
     
     private func _parseData(data aData : Dictionary<String, Any>) -> Void {
-        self.itemName = aData["item"] as? String
+        self.itemNameRaw = aData["item"] as? String
+        let map = LocalizedText.shareInstance.currentLocaleTextMap()
+        self.itemName = map?[self.itemNameRaw!] ?? self.itemNameRaw
         self.itemIden = aData["id"] as? Int
         self.itemIconIden = aData["icon"] as? Int
         self.slot = aData["slot"] as? String
